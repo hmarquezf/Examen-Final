@@ -1,0 +1,76 @@
+.banner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+#slide1 {
+    background-color: #3498db;
+}
+
+#slide2 {
+    background-color: #e74c3c;
+}
+
+#slide3 {
+    background-color: #2ecc71;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+.active {
+    display: block;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: right;
+}
+
+nav {
+    margin-top: 10px;
+    align-content: left;
+}
+
+a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+img{
+    width: 80px;
+}
+
+
