@@ -1,76 +1,226 @@
-.banner {
-    width: 100%;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+h1, h2, h3{
+
+    color: #1d273b;
+    font-weight: 300;
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
     overflow: hidden;
 }
 
-.slide {
+.contenedor-servicios{
+
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    padding: 60px 0;
+
+}
+
+h1{
+    font-size: 50px;
+}
+
+header::before{
+    content: "";
+    display: block;
+    margin-bottom: 80px;
+}
+
+nav{
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    border-bottom: 1px solid transparent;
+    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .2);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    /*transition: ease-in-out 0.5s;*/
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    align-items: center;
+}
+
+
+.nav .logo{
+    height: 80px; 
+}
+
+.nav .logo img{
+    background: #fff;
+    height: 80px;
+    vertical-align: top;
+}
+
+.enlaces{
+    font-weight: 300;
+}
+
+.nav .enlaces a{
+    color: #5d6678;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.menu{
+    width: 80px;
+    height: 80px;
     display: none;
     text-align: center;
-    padding: 100px 0;
-    color: #fff;
+    z-index: 100;
+    cursor: pointer;
+    transition: color 0.5s ease-in;
+
 }
 
-#slide1 {
-    background-color: #3498db;
+.menu > i{
+    font-size: 25px;
+    line-height: 90px;
 }
 
-#slide2 {
-    background-color: #e74c3c;
+.contenido-cuerpo{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
 }
 
-#slide3 {
-    background-color: #2ecc71;
+.contenido-cuerpo>img{
+    width: 550px;
+    animation: ease-in animat 1s;
 }
 
-h1 {
-    font-size: 2em;
-}
-
-.active {
-    display: block;
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
+@keyframes animat{
+    0%{
+        transform: scale(0);
+    }100%{
+        transform: scale(1);
     }
-    to {
-        opacity: 1;
-    }
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+.texto-cuerpo{
+    margin: 0 0 0 30px;
 }
 
-header {
-    background-color: #333;
+.contenido-cuerpo p{
+    font-weight: 100;
+    margin-top: 14px;
+    color: #5d6678;
+}
+
+.texto-cuerpo a{
+
+    margin: 28px 0 0 0;
+    width: 130px;
+    display: inline-block;
+    background: #1FDE82;
+    text-align: center;
     color: #fff;
-    padding: 15px;
-    text-align: right;
+    padding: 12px 0;
+    text-decoration: none;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 8px 32px rgba(31, 222, 130, .46);
 }
 
-nav {
-    margin-top: 10px;
-    align-content: left;
+.servicios{
+    background: #f2f2f2;
 }
 
-a {
-    color: white;
-    padding: 14px 16px;
+.contenedor-articulo{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    justify-content: space-around;
+}
+
+.titulo{
+    font-size: 50px;
+}
+
+.articulo{
+    width: 45%;
+    background: #fff;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 45px 30px 60px 30px;
+    transition: 0.5s;
+}
+
+.articulo:hover{
+    box-shadow: 0 4px 10px rgba(17, 29, 48, .26);
+}
+
+.articulo>i{
+    font-size: 30px;
+    color: #fff;
+    background: #1FDE82;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    padding-top: 20px;
+    border-radius: 50px;
+    box-shadow: 0 8px 32px rgba(31, 222, 130, .46);
+}
+
+.articulo>h3{
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.articulo>p{
+    font-weight: 100;
+    color: #5D6678;
+    margin-top: 15px;
+    padding-bottom: 20px;
+}
+
+.articulo>a{
+    color: #5D6678;
+    font-weight: 400;
     text-decoration: none;
 }
 
-a:hover {
-    background-color: #ddd;
-    color: black;
+.articulo>a:hover{
+    color: #1FDE82;
+    transition: color .5s;
 }
 
-img{
-    width: 80px;
+footer{
+    background: #f2f2f2;
+    padding: 60px 0;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
 }
 
-
+.secFooter h4{
+    color: #1d273b;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
