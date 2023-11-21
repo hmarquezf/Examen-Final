@@ -224,3 +224,38 @@ footer{
     font-weight: 400;
     margin-bottom: 30px;
 }
+
+.banner {
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+.slider {
+    display: none;
+    scroll-snap-type: x mandatory;
+}
+
+#slider1, #slider2, #slider3 {
+    width: 100%;
+    height: auto;
+}
+
+.slider>img{
+    width: 100%;
+    height: 450px;
+}
+
+.active {
+    display: block;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
