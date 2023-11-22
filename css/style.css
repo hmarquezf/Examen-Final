@@ -313,14 +313,17 @@ footer{
 }
 
 .contenedor-contacto{
-    
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
 }
 .contenedor-iframe{
-    width: 50%;
+
+
 }
 
 .contenedor-iframe iframe{
-    width: 400px;
+    width: 500px;
     height: 400px;
     border-radius: 5%;
 }
