@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contáctanos</title>
+    <title>Global Cars</title>
     <link rel="shortcut icon" href="../imagenes/carro.png">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/a1074ad141.js" crossorigin="anonymous"></script>
@@ -29,71 +29,75 @@
             </section> 
         </nav>
     </header>
-
-    <h1>Donde estamos ubicados</h1>
+    <section class="contenedor-ubicacion">
+    <h1>UBICACIÓN</h1>
         <div class="contenedor-iframe">
-            <p>Estamos ubicados en la ciudad de Barranquilla</p>
+            <div class="texto-ubicacion">
+                <h3>Estamos ubicados en la ciudad de Barranquilla</h3><br><br>
+                <i class="fa-solid fa-location-dot"></i></i><p><strong> Dirección: </strong>Cl. 80 #78B-06, Riomar, Barranquilla, Atlántico</p>
+                <i class="fa-solid fa-phone"></i><p><strong> Teléfonos: </strong>+57 304 3364085 y +57 302 2365534</p>
+                <i class="fa-solid fa-clock"></i><p><strong> Horarios: </strong>Lunes a viernes: 8:00 a.m. a 12:30 p.m. - 2:00 p.m. a 5:30 p.m.</p>
+                <i class="fa-solid fa-envelope"></i><p><strong>Email: </strong><a href="mailto:info@globalcars.com">info@globalcars.com</a></p>
+            </div> 
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2213.8229254987286!2d-74.8005116072972!3d11.023211623808844!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d595a3dc61d%3A0xba77454527eaba29!2sMalec%C3%B3n%20Puerta%20de%20Oro!5e0!3m2!1ses!2sco!4v1700625536528!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div> 
-        
-        <div class="contenedor-Formulario">
-            <form action="../php/insercion.php" method="POST">
-               <fieldset>
-                    <legend>Información Personal</legend>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <label for="telefono">Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono">
-
-                    <label for="sex">Sexo:</label>
-                    <label for="hombre"><input type="checkbox" value="Hombre">Hombre</label>
-                    <label for="mujer"><input type="checkbox" value="Mujer">Mujer</label>
-                    <label for="nodecirlo"><input type="checkbox" value="NoDecirlo">Prefiero no decirlo</label>
-
-                 </fieldset>
-
-        
-                <fieldset>
-                    <legend>Información Adicional</legend>
-                    <label for="historia">Historia:<br>A usted, ¿le gustaría ver más a detalle la historia del transporte aéreo ?</label>
-                    <label for="si">Si<input type="radio" id="si" name="historia"></label>
-                    <label for="no">No<input type="radio" id="no" name="historia"></label>
-                    <br>
-
-
-                    <label>Seleccione la categoría de aviones de la cual quisiera tener más información:</label>
-                    <select name="aviones" required>
-                     <option value="comercial">Avión comercial</option>
-                     <option value="carga">Avión de Carga</option>
-                     <option value="combate">Avión de Combate</option>
-                     <option value="agricola">Avión Agrícola</option>
-                     <option value="militar">Avión de Transporte Militar</option>
-                     <option value="planeadores">Planeadores</option>
-                     <option value="dron">Drones</option>
-                     <option value="anfibio">Avión Anfibio</option>
-
-                    </select>
-
-                    <label for="aerolineas"  >Aerolíneas:<br>¿Cuáles son las aerolineas de su preferencia ?</label>
-                    <textarea id="aerolineas" name="aerolineas" rows="4" cols="5" required></textarea>
-
-                    <label for="otros"  >Información que usted considere debe estar en este sitio web:</label>
-                    <textarea id="otros" name="otros" rows="4" cols="5" required></textarea>
-
-
-                </fieldset>
-                <input type="hidden" id="custId" name="custId" value="form-soport-001">
-                <button type="submit" onclick="alert('Se ha enviado exitosamente su información!')">Enviar</button>
-                <br>
-                <button type="reset">Limpiar</button>
-            
-            </form>
         </div>
+    </section>
+
+    <section class="contenedor-Formulario">
+        <h1>CONTACTO</h1>
+        <div class="contenido-formulario">
+            <div class="Formulario">
+                <form action="../php/insercion.php" method="POST">
+                   <fieldset>
+                        <legend>Información Personal</legend>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
     
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+    
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+    
+                        <label for="sex">Sexo:</label>
+                        <label for="hombre"><input type="radio" name="sexo" id="Hombre">Hombre</label>
+                        <label for="mujer"><input type="radio" name="sexo" id="Mujer">Mujer</label>
+                        <label for="nodecirlo"><input type="radio" name="sexo" id="NoDecirlo">Prefiero no decirlo</label>
+    
+                     </fieldset>
+    
+            
+                    <fieldset>
+                        <legend>Información Venta</legend>
+                        
+                        <label for="contacto">Contacto:<br>A usted, ¿le gustaría ser contactado por uno de nuestros asesores?</label>
+                        <label for="si"><input type="radio" id="si" name="contacto">Si</label>
+                        <label for="no"><input type="radio" id="no" name="contacto">No</label>
+                        <br>
+    
+                        <label>Seleccione un Asesor:</label>
+                        <select name="asesores" required>
+                         <option value="JP">Juan Peña</option>
+                         <option value="AE">Alberto De La Espriella</option>
+                         <option value="NM">Nicolás Martinez</option>
+                         <option value="ME">María Estrada</option>
+                         <option value="LP">Luciana Pons</option>
+                        </select>
+    
+                        <label for="otros">Información adicional:<br>A continuación especifique su requerimiento:</label><br>
+                        <label for="otros">Especifique su solicitud o requerimiento:</label>
+                        <textarea id="otros" name="otros" rows="4" cols="5" required></textarea>
+    
+                    </fieldset>
+                    <br>
+                    <input type="submit" name="btnEnviar" value="Enviar">
+                    <input type="reset" value="Cancelar" name="btnCancelar">
+                
+                </form>
+            </div>
+            <img src="../imagenes/Form.svg" alt="">
+        </div>
+    </section>  
 
 </body>
 
