@@ -48,7 +48,6 @@ nav{
     top: 0;
     z-index: 100;
     padding: 0 40px;
-    /*transition: ease-in-out 0.5s;*/
 }
 
 .nav{
@@ -72,10 +71,12 @@ nav{
 
 .enlaces{
     font-weight: 300;
+    transition: ease-in-out 0.5s;
 }
 
 .nav .enlaces a{
     color: #808799;
+    font-size: 120%;
     text-decoration: none;
     margin-left: 20px;
 }
@@ -102,16 +103,18 @@ nav{
 
 .contenido-cuerpo{
     width: 100%;
-    height: 600px;
+    height: 400px;
     display: flex;
     justify-content: space-between;
     align-content: center;
 
 }
 
-.contenido-cuerpo>img{
-    width: 550px;
+.contenido-cuerpo img{
+    width: 500px;
+    height: 300px;
     animation: ease-in animat 1s;
+    border-radius: 5%;
 }
 
 @keyframes animat{
@@ -126,7 +129,7 @@ nav{
     margin: 0 0 0 30px;
 }
 
-.contenido-cuerpo p{
+.texto-cuerpo p{
     font-weight: 100;
     margin-top: 14px;
     color: #5d6678;
@@ -221,13 +224,57 @@ footer{
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: auto;
+    border-bottom: 1px solid transparent;
+    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .2);
 }
 
-.secFooter h4{
+.contenedor-Footer{
+    width: 20%;
+    text-align: center;
+}
+
+.contenedor-Footer h3{
     color: #1d273b;
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 30px;
+}
+
+.contenedor-Footer a{
+    display: block;
+    text-decoration: none;
+    color: #5d6678;
+    font-weight: 300;
+    transition: color .3 ease-in-out;
+    margin-bottom: 10px;
+}
+
+.contenedor-Footer a:hover{
+    color:#1cc2a8;
+}
+
+.contenedor-Footer img{
+    width: 70%;
+}
+
+.redes-Sociales i{
+    font-size: 20px;
+    display: inline-block;
+    color: #adb6c7;
+    border: 1px solid #adb6c7;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.redes-Sociales i:hover{
+    color: #fff;
+    background: #1cc2a8;
+    border-color: #1cc2a8;
 }
 
 .banner {
@@ -265,18 +312,18 @@ footer{
     }
 }
 
-@media screen and (max-width:800px) {
-    .titulo{
-        font-size: 45px;
-    }
+.contenedor-contacto{
+    
+}
+.contenedor-iframe{
+    width: 50%;
+}
 
-    .contenedor{
-        flex-direction: column;
-        justify-content: space-evenly;
-        height: 720px;
-    }
-
-    .contenido-cuerpo{
-        width: 400px;
-    }
+.contenedor-iframe iframe{
+    width: 400px;
+    height: 400px;
+    border-radius: 5%;
+}
+.contenedor-Formulario{
+    width: 50%;
 }
