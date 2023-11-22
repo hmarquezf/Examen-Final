@@ -1,5 +1,7 @@
 <?php
 
+try{
+
 if(isset($_POST['btnEnviar'])){
      
     $tipo = $_POST['tdoc'];
@@ -23,8 +25,11 @@ if(isset($_POST['btnEnviar'])){
 
     $register="INSERT INTO reportes(idCliente, contactado, idAsesor, detalle) VALUES('$id','$contacto','$asesor','$otros')" or die("error".mysqli_errno($db_link));
     $result=mysqli_query($db_link,$register);
+       
 		header('location:..//web/contactos.html');
-    
 mysqli_close($db_link);
+}
+}catch(Exception $e){
+
 }
 ?>
