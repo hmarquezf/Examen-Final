@@ -528,3 +528,22 @@ input[type="reset"] {
 .Formulario br {
     margin-bottom: 10px;
 }
+
+.contenedor-Mision{
+    padding-top: 5%;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.texto-Mision{
+    margin: 0 0 0 30px;
+}
+
+.texto-Mision p{
+    font-weight: 100;
+    margin-top: 14px;
+    color: #5d6678;
+    max-width: 450px;
+}
