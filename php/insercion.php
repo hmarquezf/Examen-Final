@@ -1,24 +1,30 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "globalcars";
+
+if(isset($_POST['btnEnviar'])){
+     
+    $tipo = $_POST['tdoc'];
+    $id = $_POST['id'];
+    $nombre = $_POST['nombre'];
+    $email = $_POST['email'];
+    $telefono = $_POST['telefono'];
+    $sexo = $_POST['sexo'];
+    $contacto = $_POST['contacto'];
+    $asesor = $_POST['asesores'];
+    $otros = $_POST['otros'];
+   
+    
 
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    session_start();
+    require('config.php');
+
+	$register="INSERT INTO clientes(id, tipoid, nombre, email, telefono, sexo) VALUES('$id', '$tipo', '$nombre','$email','$telefono','$sexo')" or die("error".mysqli_errno($db_link));
+	$result=mysqli_query($db_link,$register);
+
+    $register="INSERT INTO reportes(idCliente, contactado, idAsesor, detalle) VALUES('$id','$contacto','$asesor','$otros')" or die("error".mysqli_errno($db_link));
+    $result=mysqli_query($db_link,$register);
+		header('location:..//web/contactos.html');
+    
+mysqli_close($db_link);
 }
-
-$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com')";
-
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
 ?>

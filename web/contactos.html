@@ -50,6 +50,16 @@
                 <form action="../php/insercion.php" method="POST">
                    <fieldset>
                         <legend>Información Personal</legend>
+                        <label>Tipo Documento:</label>
+                        <select name="tdoc" required>
+                            <option value="CC">CÉDULA CIUDADANIA</option>
+                            <option value="CE">CÉDULA EXTRANJERÍA</option>
+                            <option value="CE">PASAPORTE</option>
+                        </select> 
+
+                        <label for="id">Identificación:</label>
+                        <input type="number" id="id" name="id" required>
+
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" required>
     
@@ -60,9 +70,9 @@
                         <input type="tel" id="telefono" name="telefono" required>
     
                         <label for="sex">Sexo:</label>
-                        <label for="hombre"><input type="radio" name="sexo" id="Hombre">Hombre</label>
-                        <label for="mujer"><input type="radio" name="sexo" id="Mujer">Mujer</label>
-                        <label for="nodecirlo"><input type="radio" name="sexo" id="NoDecirlo">Prefiero no decirlo</label>
+                        <label for="hombre"><input type="radio" name="sexo" value="H">Hombre</label>
+                        <label for="mujer"><input type="radio" name="sexo" value="M">Mujer</label>
+                        <label for="nodecirlo"><input type="radio" name="sexo" value="N">Prefiero no decirlo</label>
     
                      </fieldset>
     
@@ -71,8 +81,8 @@
                         <legend>Información Venta</legend>
                         
                         <label for="contacto">Contacto:<br>A usted, ¿le gustaría ser contactado por uno de nuestros asesores?</label>
-                        <label for="si"><input type="radio" id="si" name="contacto">Si</label>
-                        <label for="no"><input type="radio" id="no" name="contacto">No</label>
+                        <label for="si"><input type="radio" value="si" name="contacto">Si</label>
+                        <label for="no"><input type="radio" value="no" name="contacto">No</label>
                         <br>
     
                         <label>Seleccione un Asesor:</label>
