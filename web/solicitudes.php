@@ -50,7 +50,7 @@
         
         <?php
         if(isset($_POST['filtroForm'])){
-         require('config.php');
+         require('../php/config.php');
 
          $filtroID = $_GET['filtroID'];
          $sql = "SELECT reportes.reportes as IDReporte, clientes.nombre as Nombres, reportes.contactado as Contactado, vendedores.Nombre as Asesor_seleccionado, reportes.detalle as Detalle FROM reportes, clientes, vendedores WHERE reportes.idCliente = '$filtroID' and reportes.idCliente = clientes.id and reportes.idAsesor = vendedores.referencia";

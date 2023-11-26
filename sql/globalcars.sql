@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2023 a las 23:36:07
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 7.3.28
+-- Tiempo de generación: 26-11-2023 a las 19:40:11
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `globalcars`
 --
+
+CREATE DATABASE globalcars;
 
 -- --------------------------------------------------------
 
@@ -75,6 +77,7 @@ CREATE TABLE `reportes` (
   `idCliente` int(11) NOT NULL,
   `contactado` varchar(2) NOT NULL,
   `idAsesor` varchar(2) NOT NULL,
+  `idVehiculo` varchar(5) NOT NULL,
   `detalle` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -82,8 +85,37 @@ CREATE TABLE `reportes` (
 -- Volcado de datos para la tabla `reportes`
 --
 
-INSERT INTO `reportes` (`reportes`, `idCliente`, `contactado`, `idAsesor`, `detalle`) VALUES
-(1, 1048219647, 'si', 'LP', 'Inserción de prueba');
+INSERT INTO `reportes` (`reportes`, `idCliente`, `contactado`, `idAsesor`, `idVehiculo`, `detalle`) VALUES
+(1, 1048219647, 'si', 'LP', 'CHE01', 'Inserción de prueba');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vehiculos`
+--
+
+CREATE TABLE `vehiculos` (
+  `id` varchar(5) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `precio` decimal(20,0) NOT NULL,
+  `motor` decimal(8,0) NOT NULL,
+  `kilometraje` decimal(10,0) NOT NULL,
+  `estado` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `vehiculos`
+--
+
+INSERT INTO `vehiculos` (`id`, `nombre`, `precio`, `motor`, `kilometraje`, `estado`) VALUES
+('CHE01', 'Chevrolet Spark 2015', '25000000', '1000', '98000', 'USADO'),
+('FOR01', 'Ford Focus', '98000000', '1600', '0', 'NUEVO'),
+('HYU01', 'Hyundai Tucson', '47000000', '2600', '250000', 'USADO'),
+('MAZ01', 'Mazda MX-5', '172750000', '1998', '0', 'NUEVO'),
+('MER01', 'Mercedes Benz Clase ', '353000000', '1440', '0', 'NUEVO'),
+('REN01', 'Renault Logan 2018', '41500000', '1600', '150000', 'USADO'),
+('TOY01', 'Toyota SW 4', '433856675', '2755', '0', 'NUEVO'),
+('VOL01', 'Volkswagen T-Cross', '88990000', '999', '0', 'NUEVO');
 
 -- --------------------------------------------------------
 
@@ -92,8 +124,7 @@ INSERT INTO `reportes` (`reportes`, `idCliente`, `contactado`, `idAsesor`, `deta
 --
 
 CREATE TABLE `vendedores` (
-  `ID` int(3) NOT NULL,
-  `referencia` varchar(2) NOT NULL,
+  `id` varchar(2) NOT NULL,
   `Nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -101,12 +132,12 @@ CREATE TABLE `vendedores` (
 -- Volcado de datos para la tabla `vendedores`
 --
 
-INSERT INTO `vendedores` (`ID`, `referencia`, `Nombre`) VALUES
-(1, 'JP', 'Juan Peña'),
-(2, 'AD', 'Alberto De La Espriella'),
-(3, 'NM', 'Nicolás Martinez'),
-(4, 'ME', 'María Estrada'),
-(5, 'LP', 'Luciana Pons');
+INSERT INTO `vendedores` (`id`, `Nombre`) VALUES
+('AD', 'Alberto De La Espriella'),
+('JP', 'Juan Peña'),
+('LP', 'Luciana Pons'),
+('ME', 'María Estrada'),
+('NM', 'Nicolás Martinez');
 
 --
 -- Índices para tablas volcadas
@@ -130,13 +161,21 @@ ALTER TABLE `genero`
 -- Indices de la tabla `reportes`
 --
 ALTER TABLE `reportes`
-  ADD PRIMARY KEY (`reportes`);
+  ADD PRIMARY KEY (`reportes`),
+  ADD KEY `idAsesor` (`idAsesor`),
+  ADD KEY `idCliente` (`idCliente`);
+
+--
+-- Indices de la tabla `vehiculos`
+--
+ALTER TABLE `vehiculos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `vendedores`
 --
 ALTER TABLE `vendedores`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -155,12 +194,6 @@ ALTER TABLE `reportes`
   MODIFY `reportes` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `vendedores`
---
-ALTER TABLE `vendedores`
-  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- Restricciones para tablas volcadas
 --
 
@@ -169,6 +202,13 @@ ALTER TABLE `vendedores`
 --
 ALTER TABLE `clientes`
   ADD CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`sexo`) REFERENCES `genero` (`idGen`);
+
+--
+-- Filtros para la tabla `reportes`
+--
+ALTER TABLE `reportes`
+  ADD CONSTRAINT `reportes_ibfk_1` FOREIGN KEY (`idAsesor`) REFERENCES `vendedores` (`id`),
+  ADD CONSTRAINT `reportes_ibfk_2` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
