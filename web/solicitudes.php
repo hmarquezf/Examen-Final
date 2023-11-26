@@ -49,8 +49,6 @@
         <tbody>
         </tbody>
     </table>
-</body>
-</html>
 
 </body>
 
