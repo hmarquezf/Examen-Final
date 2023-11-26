@@ -17,7 +17,6 @@ if(isset($_POST['btnEnviar'])){
    
     
 
-
     session_start();
     require('config.php');
 
@@ -26,23 +25,23 @@ if(isset($_POST['btnEnviar'])){
 
     if($resultado != null){
 
-        $register="INSERT INTO reportes(idCliente, contactado, idAsesor, idVehiculo, detalle) VALUES('$id','$contacto','$asesor','$vehiculo','$otros')" or die("error".mysqli_errno($db_link));
+        $register="INSERT INTO reportes(idCliente, contactado, idAsesor, idVehiculo, detalle) VALUES('$id','$contacto','$asesor','$vehiculo','$otros')";
         $result=mysqli_query($db_link,$register);
 
     }else{
 
     
-	    $register="INSERT INTO clientes(id, tipoid, nombre, email, telefono, sexo) VALUES('$id', '$tipo', '$nombre','$email','$telefono','$sexo')" or die("error".mysqli_errno($db_link));
+	    $register="INSERT INTO clientes(id, tipoid, nombre, email, telefono, sexo) VALUES('$id', '$tipo', '$nombre','$email','$telefono','$sexo')";
 	    $result=mysqli_query($db_link,$register);
-
-        $register="INSERT INTO reportes(idCliente, contactado, idAsesor, idVehiculo, detalle) VALUES('$id','$contacto','$asesor','$vehiculo','$otros')" or die("error".mysqli_errno($db_link));
+        
+        $register="INSERT INTO reportes(idCliente, contactado, idAsesor, idVehiculo, detalle) VALUES('$id','$contacto','$asesor','$vehiculo','$otros')";
         $result=mysqli_query($db_link,$register);
     
     }
-		header('location:..//web/contactos.html');
-        mysqli_close($db_link);
+   header('location:..//web/contactos.html');
+   mysqli_close($db_link);
 }
 }catch(Exception $e){
-
+    echo ''. $e->getMessage();
 }
 ?>

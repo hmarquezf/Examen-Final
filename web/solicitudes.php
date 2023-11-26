@@ -36,6 +36,7 @@
             <input type="submit" name="submit" value="Buscar">
         </form>
     </div>
+    <h2 class="tituloSol">LISTADO SOLICITUDES</h2>
     <div class="tabla">
     <?php
         if(isset($_POST['submit'])){
@@ -53,8 +54,6 @@
          $resultado = $db_link->query($sql);
 
          if($resultado != null){
-
-            echo "<h2>LISTADO SOLICITUDES</h2>";
             echo "    <table>
                         <thead>
                         <tr>
