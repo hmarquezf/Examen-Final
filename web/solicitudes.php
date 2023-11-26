@@ -28,51 +28,57 @@
             </section> 
         </nav>
     </header>
-
-    <form id="filtroForm" method="POST">
-        <label for="filtroID">Filtrar por ID:</label>
-        <input type="number" id="filtroID" name="filtroID">
+    <div class="busqueda">
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>">
+            <label for="filtroID">Buscar por ID:</label>
+            <input type="number" name="ID">
         
-        <input type="submit" name="btnBuscar" value="Aplicar Filtros">
-    </form>
-
-    <table id="tabla-Resultados">
-        <thead>
-            <tr>
-                <th>ID Reporte</th>
-                <th>Cliente</th>
-                <th>Desea ser contactado</th>
-                <th>Asesor</th>
-                <th>Detalle</th>
-            </tr>
-        </thead>
-        <tbody>
-        
-        <?php
-        if(isset($_POST['filtroForm'])){
+            <input type="submit" name="submit" value="Buscar">
+        </form>
+    </div>
+    <div class="tabla">
+    <?php
+        if(isset($_POST['submit'])){
          require('../php/config.php');
 
-         $filtroID = $_GET['filtroID'];
-         $sql = "SELECT reportes.reportes as IDReporte, clientes.nombre as Nombres, reportes.contactado as Contactado, vendedores.Nombre as Asesor_seleccionado, reportes.detalle as Detalle FROM reportes, clientes, vendedores WHERE reportes.idCliente = '$filtroID' and reportes.idCliente = clientes.id and reportes.idAsesor = vendedores.referencia";
+        $idC = (int)$_REQUEST['ID'];
 
-         $resultado = mysqli_query($db_link, $sql);
+         $sql = "SELECT reportes.reportes as IDReporte, 
+         clientes.nombre as Nombres, reportes.contactado as Contactado, 
+         vehiculos.nombre as Vehiculo ,vendedores.Nombre as Asesor_seleccionado,
+          reportes.detalle as Detalle FROM reportes, clientes, vendedores, vehiculos 
+          WHERE reportes.idCliente = '$idC' and reportes.idCliente = clientes.id 
+          and reportes.idAsesor = vendedores.id and reportes.idVehiculo = vehiculos.id";
 
-         while ($fila = mysqli_fetch_array($resultado)) {
-            echo "<tr>"
-                ."<td>" . $fila['IDReporte'] . "</td>"
-                ."<td>" . $fila['Nombres'] . "</td>"
-                ."<td>" . $fila['Contactado'] . "</td>"
-                ."<td>" . $fila['Asesor_seleccionado'] . "</td>"
-                ."<td>" . $fila['Detalle'] . "</td>"
-            . "</tr>";
+         $resultado = $db_link->query($sql);
+
+         if($resultado != null){
+
+            echo "<h2>LISTADO SOLICITUDES</h2>";
+            echo "    <table>
+                        <thead>
+                        <tr>
+                            <th>ID Reporte</th>
+                            <th>Nombre Cliente</th>
+                            <th>Desea ser contactado</th>
+                            <th>vehículo de Interés</th>
+                            <th>Asesor Seleccionado</th>
+                            <th>Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    ";
+
+            while ($row = $resultado->fetch_assoc()) {
+                echo "<tr><td>" . $row['IDReporte'] . "</td><td>" . $row['Nombres'] . "</td><td>" . $row['Contactado'] . "</td><td>" . $row['Vehiculo'] . "</td><td>" . $row['Asesor_seleccionado'] . "</td><td>" . $row['Detalle'] . "</td></tr>";
+            }
+            echo "</tbody>
+                </table>";
          }
-
          mysqli_close($db_link);
         }
 ?>
-        </tbody>
-    </table>
-
+</div>
 </body>
 
 <footer>
@@ -88,7 +94,7 @@
         <a href="../web/mision.html">Misión</a>
         <a href="../web/cuidados.html">Cuidados y Recomendaciones</a>
         <a href="../web/contactos.html">Contáctanos</a>
-        <a href="../web/solicitudes.html">Consulta de Solicitudes</a>
+        <a href="../web/solicitudes.php">Consulta de Solicitudes</a>
     </div>
     <div class="contenedor-Footer">
         <h3>Redes Sociales</h3>
